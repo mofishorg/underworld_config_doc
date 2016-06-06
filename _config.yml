@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   underworld 项目文档的浏览静态页，用于存放和更新 underworld 项目中
   和战斗相关的配置说明文档。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://mofishorg.github.io" # the base hostname & protocol for your site
 github_username:  wenchengye
 
 # Build settings
