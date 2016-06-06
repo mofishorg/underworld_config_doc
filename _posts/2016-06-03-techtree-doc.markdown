@@ -138,6 +138,7 @@ categories: jekyll update
   * "name"（Name属性）。含义：光环的名字。取值：字符串；key值。
   * "radius"（Radius属性）。含义：光环的半径。取值：整数值；地图最小单位。
   * "buff_name"（BuffName属性）。含义：光环提供的buff名称。取值：字符串；key值。
+  * 融合标签：`<condition>`，描述该光环影响目标的筛选条件。
 
 
 # `<spell>`
