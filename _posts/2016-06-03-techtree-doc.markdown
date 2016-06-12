@@ -17,6 +17,8 @@ categories: jekyll update
 8. 枚举：有限的几个字符串的集合
 9. option属性：有的时候可以不配置的属性，提供默认值。
 
+- - -
+<br/>
 
 
 
@@ -408,7 +410,8 @@ categories: jekyll update
   * "descending"（Descending属性，option）。含义：启发值是否是值越大越优秀。取值：整数。默认值：1。
   * "value"（Value属性）。含义：启发值的取值。取值：DynamicValue。
 
-
+- - -
+<br/>
 
 
 ## 取值
