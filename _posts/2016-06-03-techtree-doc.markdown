@@ -4,6 +4,16 @@ title:  "TechTree 配置文档"
 date:   2016-06-03 18:45:26 +0800
 categories: jekyll update
 ---
+
+> 更新日志
+>
+> 6.17.2016
+> 1. 为绝大部分添加了name属性。
+> 2. 去除了所有下属标签，改用名字关联。
+> 3. 删除了一些冗余标签。
+>
+
+
 ## 约定
 
 
@@ -78,28 +88,35 @@ categories: jekyll update
   * "max_overlay"（MaxOverlay属性，option）。含义：buff的最大叠加次数。取值：整数。默认值：1。
   * "dispelable"（Dispelable属性，option）。含义：该类buff是否能被驱散。取值：布尔值。默认值：1。
   * "render_key"（RenderKey属性，option）。含义：该buff的绘制资源名字。取值：字符串；key值。默认值：空。
-  * 下属标签：`<buff_effect>`，复数，该buff可以产生的效果。
+  * "buff_effect_names"（BuffEffectNames属性，option）。含义：该buff可以产生的效果的名字列表。取值：字符串；形式："BuffEffectName;BuffEffectName;..."。默认值：0。
 
 
 # `<buff_effect>`
  （BuffEffect标签）。含义：描述属于buff的效果的配置标签。
 
-  * 下属标签：`<buff_effect_description>`，唯一，该效果的生效方式；`<effect>`&`<damage>`，二选一，效果描述。
+  * "buff_effect_name"（BuffEffectName属性）。含义：buff效果的名字。取值：字符串；key值。
+  * "buff_effect_condition"（BuffEffectCondition属性）。含义：buff的效果的生效的条件。取值：枚举{"immediate","loop","schedule","end","dispel"}，immediate表示在buff生效同时立即生效的效果；loop表示按照一定时间循环生效的效果；schedule表示按照一定时间定时生效一次的效果；timing表示在特定时机除非生效的效果；end表示在buff结束时生效的效果；dispel表示在buff被驱散时生效的效果（不包含buff结束）。
+  * "buff_effect_time"（BuffEffectTime属性，option）。含义：buff效果的生效时间，仅仅在buff_effect_condition为loop或schedule的时候有效。取值：浮点数。默认值：0。
+  * "buff_effect_loads"（BuffEffectLoads属性，option）。含义：该buff效果的生效次数，取值-1时为无限制。取值：整数。默认值：-1。
+  * "is_damage"（IsDamage属性，option）。含义：该buff效果是伤害还是持续效果，当为buff内容标签应为<damage>；否则为<effect>。取值：布尔值。默认值：0。
+  * "buff_effect_content_name"（BuffEffectContentName）。含义：该buff效果内容的名字，<effect>&<damage>标签的名字。取值：字符串；key值。
 
 
 # `<damage>`
 （damage标签）。含义：描述伤害或治疗的配置标签。
 
+  * "damage_name"（DamageName属性）。含义：damage的名字。取值：字符串；key值。
   * "damage_value"（DamageValue属性）。含义：伤害或治疗的值。取值：DynamicValue。
   * "damage_nature"（DamageNature属性）。含义：damage为伤害还是治疗。取值：枚举{"heal","hurt"}。
   * "deliver_class"（DeliverClass属性，option）。含义：damage的deliver_class类别，仅在damage_nature为hurt有意义。取值：枚举deliver_class。默认值：undefined
   * "damage_distance"（DamageDistance属性，option）。含义：伤害的距离类别（远程、近战），仅在damage_nature为hurt有意义。取值：枚举{"faraway, nearby"}。默认值：undefined。
-  * 下属标签：`<feature_group>`，复数，这次伤害/治疗附带的特性。
+  * "feature_names"（FeatureNames属性，option）。含义：这次伤害/治疗附带的特性。取值：字符串；形式："FeatureName;FeatureName;..."。默认值：空。
 
 
 # `<effect>`
 （effect标签）。含义：描述持续效果的配置标签（主要用于buff）。
 
+  * "effect_name"（EffectName属性）。含义：效果的名字。取值：字符串；key值。
   * "class"（Class属性）。含义：效果的效果类别。取值：枚举{"alter_attr","set_state","add_feature"}，alter_attr表示该效果为改变单位属性；set_state表示该效果为设置单位状态；damage表示效果使单位经受伤害或治疗。
   * "alias_name"（AliasName属性，option）。含义：本效果属于的EffectAlias的名字。取值：字符串：key值。默认值：空。
   * "ref_value"（RefValue属性，option）。含义：这个持续效果的参考值，用于unique的持续效果做比较。取值：整数。默认值：0。
@@ -109,17 +126,7 @@ categories: jekyll update
   * 当class为set_state时
      * "state_name"（StateName属性）。含义：效果所设置的单位状态。取值：枚举state_type。
   * 当class为add_feature时
-     * 下属标签：`<feature_group>`，唯一，效果为单位添加的特性。
-
-
-
-# `<buff_effect_description>`
-（BuffEffectDescription标签）。含义：描述属于的buff的效果的生效方式的配置标签。
-
-  * "buff_effect_condition"（BuffEffectCondition属性）。含义：buff的效果的生效的条件。取值：枚举{"immediate","loop","schedule","end","dispel"}，immediate表示在buff生效同时立即生效的效果；loop表示按照一定时间循环生效的效果；schedule表示按照一定时间定时生效一次的效果；timing表示在特定时机除非生效的效果；end表示在buff结束时生效的效果；dispel表示在buff被驱散时生效的效果（不包含buff结束）。
-  * "buff_effect_time"（BuffEffectTime属性，option）。含义：buff效果的生效时间，仅仅在buff_effect_condition为loop或schedule的时候有效。取值：浮点数。默认值：0。
-  * "buff_effect_loads"（BuffEffectLoads属性，option）。含义：该buff效果的生效次数，取值-1时为无限制。取值：整数。默认值：-1。
-  * "is_damage"（IsDamage属性，option）。含义：该buff效果是伤害还是持续效果，当为伤害时相邻标签应为<damage>；否则为<effect>。取值：布尔值。默认值：0。
+     * "feature_name"（FeatureName属性）。含义：效果为单位添加的特性的名字。取值：字符串；key值。
 
 
 # `<passive>`
@@ -128,10 +135,10 @@ categories: jekyll update
   * "alias"（alias属性）。含义：该被动技能的归类名称，不同等级的同一技能被称为同一被动技能归类。取值：字符串；key值。
   * "name"（name属性）。含义：该被动技能的唯一名称。取值：字符串；key值。
   * "level"（level属性）。含义：该被动技能的等级。取值：整数，[1 - max_level]。
-  * "buff_types"（BuffTypes属性，option）。含义：该被动技能活跃时给持有者提供的buff种类。取值：字符串；形式，"BuffName;BuffName;..."。
-  * "aura_types"（AuraTypes属性，option）。含义：该被动技能活跃时给持有者持有的光环种类。取值：字符串；形式，"AuraName;AuraName;..."。
+  * "buff_types"（BuffTypes属性，option）。含义：该被动技能活跃时给持有者提供的buff种类。取值：字符串；形式，"BuffName;BuffName;..."。默认值：空。
+  * "aura_types"（AuraTypes属性，option）。含义：该被动技能活跃时给持有者持有的光环种类。取值：字符串；形式，"AuraName;AuraName;..."。默认值：空。
+  * "addon_types"（AddonTypes属性，option）。含义：该被动技能给持有者提供的加成。取值：字符串；形式，"AddonName;AddonName;..."。默认值：空。
   * "desc"（Desc属性，option）。含义：该被动技能的文字描述。取值：字符串。
-  * 下属标签：`<addon>`，复数，该被动技能给持有者提供的加成。
 
 
 # `<aura>`
@@ -164,10 +171,10 @@ categories: jekyll update
 
   * "name"（Name属性）。含义：施法效果的名字。取值：字符串；key值。
   * "class"（SpellPatternClass属性）。含义：施法效果的模式类别。取值：枚举{"target","target_position_circle","all"}，target表示对施法；target_position_circle表示对施法目标位置为圆心的圆形范围内的单位施法；all表示对战场上所有单位施法。
+  * "contetn_name"（ContentName属性）。含义：施法效果的内容的名字。取值：字符串；key值。
   * 当class为target_position_circle时
     * "radius"（radius属性）。含义：选取圆形范围的半径。取值：整数（地图最小单位）。
   * 融合标签：`<condition>`，描述选取施法目标限制条件。
-  * 下属标签：`<spell_content>`，唯一，施法的内容描述。
 
 
 # `<spell_content>`
@@ -176,13 +183,14 @@ categories: jekyll update
   * "name"（name属性）。含义：施法内容的名字。取值：字符串；key值。
   * "spell_content_class"（spellContentClass属性）。含义：施法内容的类型。取值：枚举{"damage","bullet", "summon","revive","magic"}，damage表示对目标施加伤害；bullet表示对目标放出子弹；summon表示召唤单位；revive表示复活单位；magic表示释放魔法实例。
   * 当spell_content_class为damage时
-     * 下属标签：`<damage>`，单数，描述施加的伤害。
+     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：施加的伤害的名字。取值：字符串；key值。
   * 当spell_content_class为bullet时
      * "to_position"（ToPosition属性，option）。含义：是向单位发出子弹还是向位置发出子弹。取值：布尔值。默认值：0。
-     * 下属标签：`<damage>`，单数，子弹所传递的伤害信息；`<bullet>`，单数，子弹的描述信息。
+     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：子弹所传递的伤害的名字。取值：字符串；key值。
+     * "spell_content_bullet_name"（SpellContentBulletName属性）。含义：子弹类型的名字。取值：字符串；key值。
   * 当spell_content_class为summon时
      * "summon_count"（SummonCount属性，option）。含义：召唤的单位的个数。取值：整数。默认值：1。
-     * 下属标签： `<unit_setting>`，单数，召唤单位的描述。
+     * 融合标签： `<unit_setting>`，单数，召唤单位的描述。
   * 当spell_content_class为magice时
      * "magic_name"（MagicName属性）。含义：魔法实例的类型名字。取值：字符串；key值。
      * "is_attach_to_holder"（IsAttachToHolder属性，option）。含义：魔法实例是否绑定在目标上。取值：布尔值。默认值：0。
@@ -203,7 +211,7 @@ categories: jekyll update
   * "span"（Span属性，option）。含义：魔法实例的持续时间，仅在SpanType为limited时有效。取值：整数；时间单位。默认值：0。
   * "render_key"（RenderKey属性，option）。含义：魔法实例的绘制资源名称。取值：字符串；key值。默认值：空。
   * "aura_names"（AuraNames属性，option）。含义：魔法实例包含的光环类型名字。取值：字符串；形式，"AuraName;AuraName;..."。默认值：空。
-  * 下属标签：`<magic_effect>`，复数，描述魔法实例所释放的效果。
+  * "magic_effect_names"（MagicEffectNames属性，option）。含义：魔法实例所释放的效果的名字。取值：字符串；形式，"MagicEffectName;MagicEffectName;..."。默认值：空。
 
 
 # `<magic_effect>`
@@ -238,51 +246,41 @@ categories: jekyll update
   * "occupy"（Occupy属性，option）。含义：单位的碰撞体积十分生效。取值：布尔值。默认值：1。
   * "passive_names"（PassiveNames属性，option）。含义：单位具有的被动技能名称。取值：字符串；形式："PassiveTypeName;PassiveTypeName;..."。默认值：空。
   * "spell_names"（SpellNames属性，option）。含义：单位具有的主动技能名称。取值：字符串；形式："SpellTypeName;SpellTypeName;..."。默认值：空。
-  * "produce_names"（ProduceNames属性，option）。含义：单位具有的生产技能的名称。取值：字符串；形式："ProduceTypeName;ProduceTypeName..."。默认值：空。
+  * "produce_names"（ProduceNames属性，option）。含义：单位具有的生产技能的名称。取值：字符串；形式："SkillTypeName;SkillTypeName..."。默认值：空。
+  * "skill_names"（SkillNames属性，option）。含义：单位具有的基础技能的名称。取值：字符串；形式："ProduceTypeName;ProduceTypeName..."。默认值：空。
+  * "feature_names"（FeatureNames属性，option）。含义：单位具有的特性的名称。取值：字符串；形式："FeatureGroupName;FeatureGroupName..."。默认值：空。
   * "max_level"（MaxLevel属性，option）。含义：单位的最大等级。取值：整数。默认值：0。
   * "max_quality"（MaxQuality属性，option）。含义：单位的组大品质。取值：整数。默认值：0。
   * "max_talent_level"（MaxTalentLevel属性，option）。含义：单位的最大天赋等级。取值：整数。默认值：0。
   * "render_key"（RenderKey属性）。含义：单位的绘制资源名称。取值：字符串；key值。
-  * 下属标签：`<skill>`，复数，描述单位的基础技能；`<feature_group>`，复数，描述单位的特性；`<level>`，复数，描述单位的等级信息；`<quality>`，复数，描述单位的品质信息；`<talent>`，复数，描述单位的天赋信息。
 
 
 # `<unit_setting>`
 （unit_setting标签）。含义：单位的生成信息。
 
-  * "name"（name属性）。含义：单位的名字。取值：字符串；key值。
-  * "level"（level属性，option）。含义：单位的属性。取值：整数。默认值：0。
-  * "quality"（quality属性，option）。含义：单位的品质。取值：整数。默认值：0。
-  * "talent"（talent属性，option）。含义：单位的天赋等级。取值：整数。默认值：0。
+  * "unit_setting_name"（name属性）。含义：单位的名字。取值：字符串；key值。
+  * "unit_setting_level"（level属性，option）。含义：单位的属性。取值：整数。默认值：0。
+  * "unit_setting_quality"（quality属性，option）。含义：单位的品质。取值：整数。默认值：0。
+  * "unit_setting_talent"（talent属性，option）。含义：单位的天赋等级。取值：整数。默认值：0。
 
 
-# `<level>`
-（Level标签）。含义：描述单位的升级信息的配置标签。
+# `<unit_upgrade>`
+（UnitUpgread标签）。含义：描述单位的升级信息的配置标签。
 
-  * "level_index"（LevelIndex属性）。含义：等级的序号。取值：整数[1 - maxLevel]。
+  * "upgrade_class"（UpgradeClass属性）。含义：升级的类型。取值：枚举{"level", "quality", "talent"}，level表示等级上升，quality表示品质上升，talent表示天赋上升。
+  * "unit_name"（UnitName属性）。含义：改等级信息所属于的单位的名字。取值：字符串；key值。
+  * "upgrade_index"（UpgradeIndex属性）。含义：等级的序号。取值：整数[1 - maxIndex]。
   * 融合标签：`<addon>`，该等级对单位的加成。
-
-           
- # `<quality>`
- （Quality标签）。含义：描述单位的品质信息的配置标签。
-
-  * "quality_index"（QualityIndex属性）。含义：品质的序号。取值：整数[1 - maxQuality]。
-  * 融合标签：`<addon>`，该品质对单位的加成。
-
-           
- # `<talent>`
- （Talent标签）。含义：描述单位的天赋信息的配置标签。
-
-  * "talent_index"（TalentIndex属性）。含义：天赋等级的序号。取值：整数[1 - maxTalentLevel]。
-  * 融合标签：`<addon>`，该天赋等级对单位的加成。
 
           
  # `<addon>`
  （Addon标签）。含义：描述对单位的加成信息的配置标签。
 
+  * "name"（name属性）。含义：该加成信息的名字。取值：字符串；key值。
   * "attribute_addons"（AttributeAddons属性，option）。含义：加成信息所更改的单位属性。取值：字符串；形式："{0}:{1};..."，{0}取值枚举attribute_type，{1}取值为LiteralValue。默认值：空。
   * "passive_addons"（PassiveAddons属性，option）。含义：加成信息所提供的被动技能。取值：字符串；形式："PassiveTypeName;PassiveTypeName;..."。默认值：空。
   * "spell_addons"（PassiveAddons属性，option）。含义：加成信息所提供的主动技能。取值：字符串；形式，"SpellTypeName;SpellTypeName;..."。默认值：空。
-  * 下属标签：`<feature_group>`，复数，加成信息所提供的特性。
+  * "feature_addons"（FeatureAddons属性，option）。含义：加成信息所提供的特性。取值：字符串；形式，"FeatureGroupName;FeatureGroupName;..."。默认值：空。
 
 
 # `<skill>`
@@ -301,7 +299,7 @@ categories: jekyll update
      * "unit_classes"（UnitClasses属性）。含义：可攻击的Unit类型。取值：整数；一共4位从高到低表示core，building，hero，warrior。
      * "deliver_class"（DeliverClass属性，option）。含义：伤害的DeliverClass类别。取值：枚举deliver_class。默认值：undefined。
      * "damage_distance"（DamageDistance属性）。含义：伤害的DamageDistance类别。取值：枚举damage_distance。
-     * 下属标签：`<bullet>`，唯一，该次攻击是否有子弹。
+     * "bullet_name"（BulletName属性，option）。含义：该次攻击是否有子弹以及子弹信息。取值：字符串；key值。默认值：空。
   * 当class为move时
      * "speed"（Speed属性）。含义：移动速度。取值：整数；地图最小单位/秒。
   * 当class为die时
@@ -314,13 +312,13 @@ categories: jekyll update
   * "produce_name"（ProduceName属性）。含义：生产技能的名字。取值：字符串；key值。
   * "produce_cost"（ProduceCost属性，option）。含义：生产一次的资源消耗。取值：字符串；形式，"{0}:{1};..."，{0}为字符串，取值为ResourceType的name，{1}为整数，表示所需资源数量。
   * "produce_desc"（ProduceDesc属性）。含义：生产技能的文字描述。取值：字符串。
-  * 下属标签：`<unit_setting>`，单数，描述所生产的单位。
-  * 融合标签：`<skill>`，描述生产技能的基本信息。
+  * 融合标签：`<skill>`，描述生产技能的基本信息。`<unit_setting>`，描述所生产的单位。
 
 
 # `<bullet>`
 （Bullet标签）。含义：描述子弹的配置标签。
 
+  * "name"（name属性）。含义：子弹的名字。取值：字符串；key值。
   * "speed"（Speed属性）。含义：子弹的飞行速度。取值：整数；地图最小单位/秒。
   * "radius"（Radius属性，option）。含义：子弹半径。取值：整数；地图最小单位。默认值：0。
   * "sweep_on_the_way"（SweepOnTheWay属性，option）。含义：子弹是否会击中沿路的单位。取值：布尔值；1表示会击中。默认值：0。
@@ -334,21 +332,17 @@ categories: jekyll update
 # `<feature_group>`
 （FeatureGroup标签）。含义：判定时机相同的一组feature，这些feature的生效时机可以不同。
 
+  * "name"（Name属性）。含义：特性组的名字。取值：字符串；key值。
   * "determine_timing"（DeterimingTiming属性）。含义：特性组的判定时机。取值：timing枚举。
-  * 下属标签：`<feature_item>`，复数，属于特性组的各个特性。 
+  * "feature_type_names"（FeatureTypeNames属性，option）。含义：，复数，属于特性组的各个特性的名字。取值：字符串；形式："FeatureTypeName;FeatureTypeName;..."。默认值：空。
   * 融合标签：`<condition>`，特性的触发条件。
-
-          
-# `<feature_item>`
-（featureItem标签）。含义：描述属于特性组中的单个特性。
-
-  * "effect_timing"（EffectTiming属性）。含义：该特性的生效时机。取值：timing枚举。
-  * 下属标签：`<feature>`，单数，特性的描述标签。
 
           
 # `<feature>`
 （feature标签）。含义：描述特性的配置标签。
 
+  * "feature_name"（FeatureName属性）。含义：特性的名字。取值：字符串；key值。
+  * "effect_timing"（EffectTiming属性）。含义：该特性的生效时机。取值：timing枚举。
   * "type"（Types属性）。含义：特性的效果类别。取值：枚举{"damage_enhance","damage_reduce","drain","splash","rebound","pierce","multiple","extra_damage","miss","add_buff","cast_spell","dispel","reflect","counter","tough"}，"damage_enhance"为增加攻击伤害；"damage_reduce"为减少攻击伤害；"drain"为攻击吸血；"splash"为攻击溅射；"rebound"为攻击弹射；"pierce"为穿透；"multiple"为多重攻击；"extra_damage"为额外伤害；"miss"为未命中；"add_buff"为添加buff;"dispel"为驱散buff；"reflect"为反弹伤害；"counter"为反击；"tough"为坚毅；"cast_spell"为施放法术。
   * "render_key"（RenderKey属性，option）。含义：特性触发时的绘制资源名称。取值：字符串；key值。默认值：空。
   * 当type为damage_enhance时
@@ -399,12 +393,13 @@ categories: jekyll update
 # `<heuristic>`
 （heuristic标签）。含义：根据自身和目标生成评价值的启发函数。
 
-  * 下属标签：`<heuristic_element>`，复数，描述启发函数的评价值，评价值的权重按heuristic_element的先后顺序逐渐降低。
+  * "heuristic_element_names"（HeuristicElementNames，option）。含义：描述启发函数的评价值的名字，评价值的权重按heuristic_element的先后顺序逐渐降低。取值：字符串；形式："HeuristicElementName;HeuristicElementName;..."。默认值空。
 
 
 # `<heuristic_element>`
 （HeuristicElement标签）。含义：描述启发函数的一个启发值。
 
+  * "heuristic_element_name"（HeuristicElementName属性，option）。含义：启发值得名字。取值：字符串；key值。
   * "type"（type属性）。含义：启发值的类型。取值：枚举{"literal","less_then_ref_value","equal_to_ref_value","larger_then_ref_value"}，literal表示直接值；less_then_ref_value表示是否比参考值小的判断所产生的布尔值；equal_to_ref_value表示是否和参考值相等的判断所产生的布尔值；larger_then_ref_value表示是否比参考值高的判断所产生的布尔值。
   * "ref_value"（RefValue属性，option）。含义：启发值的参考值。取值：整数。默认值：0。
   * "descending"（Descending属性，option）。含义：启发值是否是值越大越优秀。取值：整数。默认值：1。
