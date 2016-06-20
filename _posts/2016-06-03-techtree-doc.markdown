@@ -99,8 +99,8 @@ categories: jekyll update
   * "buff_effect_condition"（BuffEffectCondition属性）。含义：buff的效果的生效的条件。取值：枚举{"immediate","loop","schedule","end","dispel"}，immediate表示在buff生效同时立即生效的效果；loop表示按照一定时间循环生效的效果；schedule表示按照一定时间定时生效一次的效果；timing表示在特定时机除非生效的效果；end表示在buff结束时生效的效果；dispel表示在buff被驱散时生效的效果（不包含buff结束）。
   * "buff_effect_time"（BuffEffectTime属性，option）。含义：buff效果的生效时间，仅仅在buff_effect_condition为loop或schedule的时候有效。取值：浮点数。默认值：0。
   * "buff_effect_loads"（BuffEffectLoads属性，option）。含义：该buff效果的生效次数，取值-1时为无限制。取值：整数。默认值：-1。
-  * "is_damage"（IsDamage属性，option）。含义：该buff效果是伤害还是持续效果，当为buff内容标签应为<damage>；否则为<effect>。取值：布尔值。默认值：0。
-  * "buff_effect_content_name"（BuffEffectContentName）。含义：该buff效果内容的名字，<effect>&<damage>标签的名字。取值：字符串；key值。
+  * "is_damage"（IsDamage属性，option）。含义：该buff效果是伤害还是持续效果，当为buff内容标签应为`<damage>`；否则为`<effect>`。取值：布尔值。默认值：0。
+  * "buff_effect_content_name"（BuffEffectContentName）。含义：该buff效果内容的名字，`<effect>`&`<damage>`标签的名字。取值：字符串；key值。
 
 
 # `<damage>`
