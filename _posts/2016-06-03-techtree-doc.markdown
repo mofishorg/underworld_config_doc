@@ -161,7 +161,7 @@ categories: jekyll update
   * "to_dead"（ToDead属性，option）。含义：技能是否队死亡单位释放。取值：布尔值。默认值：0。
   * "cast_distance"（CastDistance属性）。含义：技能的施法距离。取值：整数（地图最小单位）；-1为无距离限制。
   * "cast_type"（CastType属性）。含义：技能选取锚点的类别。取值：枚举{"self","position","unit","unit_but_self","position_or_unit"}，self表示技能永远选取施法者为锚点；postion表示技能选取指定位置为锚点；unit表示技能选取某个单位为锚点；unit_but_self表示技能选取除施法者以为的某个目标为锚点；position_or_unit表示技能选取位置或者某个单位为锚点；（不含二次选择操作的法术，锚点均为self）  
-  * "immediate_elements"（ImmediateElements属性，option）。含义：技能释放时立即放出的技能元素。取值：字符串；形式，"SpellElement;SpellElement;..."。SpellElement取值。形式："{0},{1},{2}"，{0}为布尔值，表示技能元素是对施法者释放还是对锚点释放，值为1时表示对施法者；{1}为字符串，取值为SpellPattern的name属性；{2}为整数，表示该技能元素一次释放的生效次数。
+  * "immediate_elements"（ImmediateElements属性，option）。含义：技能释放时立即放出的技能元素。取值：字符串；形式，"SpellElement;SpellElement;..."。SpellElement取值。形式："{0},{1},{2}"，{0}为布尔值，表示技能元素是对施法者释放还是对锚点释放，值为1时表示对施法者；{1}为字符串，取值为`<spell_pattern>`的name属性；{2}为整数，表示该技能元素一次释放的生效次数。
   * "desc"（Desc属性，option）。含义：技能的文字描述。取值：字符串。
   * "ai"（AI属性，option）。含义：技能AI规则描述名字。取值：字符串；key值。
   * 融合标签：`<condition>`，该法术施放的限制条件，仅检查条件，不做概率判定；`<skill>`，该法术的技能信息。
@@ -172,7 +172,7 @@ categories: jekyll update
 
   * "name"（Name属性）。含义：施法效果的名字。取值：字符串；key值。
   * "class"（SpellPatternClass属性）。含义：施法效果的模式类别。取值：枚举{"target","target_position_circle","all"}，target表示对施法；target_position_circle表示对施法目标位置为圆心的圆形范围内的单位施法；all表示对战场上所有单位施法。
-  * "contetn_name"（ContentName属性）。含义：施法效果的内容的名字。取值：字符串；key值。
+  * "contetn_name"（ContentName属性）。含义：施法效果的内容的名字，取值为`<spell_content>`的name属性。取值：字符串；key值。
   * 当class为target_position_circle时
     * "radius"（radius属性）。含义：选取圆形范围的半径。取值：整数（地图最小单位）。
   * 融合标签：`<condition>`，描述选取施法目标限制条件。
@@ -184,16 +184,16 @@ categories: jekyll update
   * "name"（name属性）。含义：施法内容的名字。取值：字符串；key值。
   * "spell_content_class"（spellContentClass属性）。含义：施法内容的类型。取值：枚举{"damage","bullet", "summon","revive","magic"}，damage表示对目标施加伤害；bullet表示对目标放出子弹；summon表示召唤单位；revive表示复活单位；magic表示释放魔法实例。
   * 当spell_content_class为damage时
-     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：施加的伤害的名字。取值：字符串；key值。
+     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：施加的伤害的名字，取值为`<damage>`的name属性。取值：字符串；key值。
   * 当spell_content_class为bullet时
      * "to_position"（ToPosition属性，option）。含义：是向单位发出子弹还是向位置发出子弹。取值：布尔值。默认值：0。
-     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：子弹所传递的伤害的名字。取值：字符串；key值。
-     * "spell_content_bullet_name"（SpellContentBulletName属性）。含义：子弹类型的名字。取值：字符串；key值。
+     * "spell_content_damage_name"（SpellContentDamageName属性）。含义：子弹所传递的伤害的名字，取值为`<damage>`的name属性。取值：字符串；key值。
+     * "spell_content_bullet_name"（SpellContentBulletName属性）。含义：子弹类型的名字，取值为`<bullet>`的name属性。取值：字符串；key值。
   * 当spell_content_class为summon时
      * "summon_count"（SummonCount属性，option）。含义：召唤的单位的个数。取值：整数。默认值：1。
      * 融合标签： `<unit_setting>`，单数，召唤单位的描述。
   * 当spell_content_class为magice时
-     * "magic_name"（MagicName属性）。含义：魔法实例的类型名字。取值：字符串；key值。
+     * "magic_name"（MagicName属性）。含义：魔法实例的类型名字，取值为`<magic>`的name属性。取值：字符串；key值。
      * "is_attach_to_holder"（IsAttachToHolder属性，option）。含义：魔法实例是否绑定在目标上。取值：布尔值。默认值：0。
 
 # `<spell_ai_description>`
