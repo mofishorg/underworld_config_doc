@@ -172,7 +172,7 @@ categories: jekyll update
 
   * "name"（Name属性）。含义：施法效果的名字。取值：字符串；key值。
   * "class"（SpellPatternClass属性）。含义：施法效果的模式类别。取值：枚举{"target","target_position_circle","all"}，target表示对施法；target_position_circle表示对施法目标位置为圆心的圆形范围内的单位施法；all表示对战场上所有单位施法。
-  * "contetn_name"（ContentName属性）。含义：施法效果的内容的名字，取值为`<spell_content>`的name属性。取值：字符串；key值。
+  * "content_name"（ContentName属性）。含义：施法效果的内容的名字，取值为`<spell_content>`的name属性。取值：字符串；key值。
   * 当class为target_position_circle时
     * "radius"（radius属性）。含义：选取圆形范围的半径。取值：整数（地图最小单位）。
   * 融合标签：`<condition>`，描述选取施法目标限制条件。
