@@ -240,7 +240,7 @@ categories: jekyll update
   * "armor_preference_factor"（ArmorPreferenceFactor属性，option）。含义：单位的护甲偏好系数。取值：LiteralValue。默认值：p:0。
   * "magical_defense"（MagicalDefense属性，option）。含义：单位魔抗值。取值：整数。默认值：0。
   * "sight"（Sight属性，option）。含义：单位视野半径。取值：整数（地图最小单位）。默认值：0。
-  * "attackSight"（AttackSight属性）。含义：单位警戒半径。取值：整数（地图最小单位）。
+  * "attack_sight"（AttackSight属性）。含义：单位警戒半径。取值：整数（地图最小单位）。
   * "size"（Size属性，option）。含义：单位碰撞体积边长。取值：整数（地图最小单位）。默认值：0。
   * "height"（Height属性，option）。含义：单位的Z轴高度。取值：整数（地图最小单位）。默认值：0。
   * "reward"（reward属性，option）。含义：单位被杀死时奖励的资源。取值：字符串；形式，"{0}:{1};..."，{0}为字符串，取值为ResourceType的name，{1}为整数，表示所需资源数量。默认值：空。
