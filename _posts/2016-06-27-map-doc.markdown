@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "Map 配置文档"
+date:   2016-06-27 12:07:00 +0800
+categories: jekyll update
+---
+
+## 标签
+
+# `<map>`
+
+（Map标签，单数）。含义：描述地图的全局信息。
+
+  * "map_name"（MapName属性）。含义：地图的名字。取值：字符串。
+  * "building_pace"（BuildingPace属性，option）。含义：放置建筑的粒度（仅能在整除坐标放置建筑，用于对齐）。取值：整数；地图最小单位。默认值：0。
+  * "game_duration"（GameDuration属性，option）。含义：游戏的终止时间。取值：整数；时间最小单位；-1表示无时间限制。默认值：-1。
+
+
+# `<location_setting>`
+
+（LocationSetting标签，复数）。含义：描述地图上一个势力的地图位置信息。
+
+  * "index"（Index属性）。含义：该位置信息所属于的势力的地图index。取值：整数。
+  * "core_location"（CoreLocation属性）。含义：核心所处的地图位置。取值：字符串；形式："{0},{1}"，{0}表示x坐标；{1}表示y坐标。
+  * "building_location"（BuildingLocation属性）。含义：默认防御塔的地图位置。取值：字符串；形式："{0},{1};..."，{0}表示x坐标；{1}表示y坐标。
+
+
+# `<schedule_events>`
+
+（ScheduleEvents标签，单数）。含义：地图上的所有定时事件。
+
+  * 下属标签：`<event>`，复数，描述单个地图事件。
+
+
+# `<loop_events>`
+
+（LoopEvents标签，单数）。含义：地图上的所有循环事件。
+
+  * 下属标签：`<event>`，复数，描述单个地图事件。
+
+
+# `<event>`
+
+（Event标签）。含义：单个地图事件。
+ 
+  * 下属标签：`<event_trigger>`，单数，事件的触发条件；`<event_effect>`，单数，事件的内容。
+
+
+# `<event_trigger>`
+
+（EventTrigger标签）。含义：事件的触发条件。
+
+  * "class"（class属性）。含义：事件的触发类型。取值：枚举{"schedule","loop"}，"schedule"表示定时触发，"loop"表示循环触发。
+  * "time"（time属性）。含义：事件的触发时间，当class为schedule时表示事件发生的绝对时间；当class为loop时表示事件发生的时间间隔。取值：整数；时间最小单位。
+  * "start_time"（StartTime属性，option）。含义：事件触发的起始时间，仅在class为loop时有效。取值：整数；时间最小单位；-1表示不限制起始时间。默认值：-1。
+  * "end_time"（EndTime属性，option）。含义：事件触发的终止时间，仅在class为loop时有效。取值：整数；时间最小单位；-1表示不限制终止时间。默认值：-1。
+
+
+# `<event_effect>`。
+
+（EventEffect标签）。含义：事件的效果。
+
+  * "class"（Class属性）。含义：事件的类型。取值：枚举{"add_unit","alter_resource"}，add_unit表示向战场增加单位；alter_resource表示改变资源量。
+  * "map_index"（MapIndex属性）。含义：事件针对的势力的地图index。取值：整数。
+  * "position"（Position属性，option）。含义：单位出现的位置，仅在class为add_unit时有效。取值：字符串；形式："{0},{1}"，{0}表示x坐标；{1}表示y坐标。默认值："0,0"。
+  * "resource_name"（ResourceName属性，option）。含义：改变的资源的名字，仅在class为alter_resource时有效。取值：字符串；key值。默认值：空。
+  * "amount"（Amount属性，option）。含义：改变的资源的数量，仅在class为alter_resouurce时有效。取值：整数。默认值：0。
+  * 下属标签：`<unit_setting>`，单数，所添加单位的描述，见*《TechTree 配置文档》*
+
+# `<faction_setting>`。
+
+（FactionSetting，单数）。含义：描述地图默认的势力配置，用于PVE。
+
+  * "faction_count"（FactionCount属性）。含义：地图上存在的势力数量。取值：整数。
+  * "this_faction"（ThisFaction属性）。含义：当前玩家的factionIndex。取值：整数。
+  * 下属标签：`<faction_setting_item>`，复数，单个势力的配置信息描述；`<game_content_setting>`，复数，描述单个势力的初始单位信息。
+
+
+# `<faction_setting_item>`。
+
+（FactionSettingItem标签）。含义：单个势力的配置信息描述。
+
+  * "faction_index"（FactionIndex属性）。含义：这个势力的factionIndex。取值：整数。
+  * "faction_control_type"（FactionControlType属性）。含义：这个势力的控制类型。取值：枚举{"human","cpu"}，human表示由玩家控制；cpu表示由AI控制。
+  * "map_index"（MapIndex属性）。含义：这个势力的地图Index。取值：整数。
+  * "team_index"（TeamIndex属性）。含义：这个势力的队伍Index。取值：整数。
+
+
+# `<game_content_setting>`。
+
+（GameContentSetting标签）。含义：单个势力的初始单位信息。
+
+  * "faction_type"（FactionType属性）。含义：这个势力的势力类型。取值：字符串；key值。
+  * 下属标签：`<core_setting>`，单数，默认核心的单位信息描述；`<tower_setting>`，单数，默认防御塔的单位信息描述。
+
+
+# `<core_setting>`。
+
+（CoreSetting标签）。含义：描述默认核心的单位信息。
+
+  * 融合标签：`<unit_setting>`，描述单位信息，见*《TechTree 配置文档》*。
+
+
+# `<tower_setting>`。
+
+（TowerSetting标签）。含义：默认防御塔的单位信息。
+
+  * 融合标签：`<unit_setting>`，描述单位信息，见*《TechTree 配置文档》*。
+ 
+
+
+
