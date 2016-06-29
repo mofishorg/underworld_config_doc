@@ -12,6 +12,11 @@ categories: jekyll update
 > 2. 去除了所有下属标签，改用名字关联。  
 > 3. 删除了一些冗余标签。  
 >
+> 6.29.2016  
+> 1. 增加一些对于建筑生效的与否的配置（damgaeType,BuffType,SpellType的is_on_building字段）。  
+> 2. spellPattern增加了一项配置（SpellPatternTargetPositionCirCle的count字段）。  
+> 3. spellType增加了一项说明性配置（radius字段）。  
+>  
 
 <br/>
 
@@ -88,6 +93,7 @@ categories: jekyll update
   * "span"（Span属性，option）。含义：buff的持续时间，仅仅在SpanType为limited或limited_and_loads时有效，单位为秒。取值：整数；时间最小单位。默认值：0。
   * "max_overlay"（MaxOverlay属性，option）。含义：buff的最大叠加次数。取值：整数。默认值：1。
   * "dispelable"（Dispelable属性，option）。含义：该类buff是否能被驱散。取值：布尔值。默认值：1。
+  * "is_on_building"（IsOnBuilding属性，option）。含义：该buff是否对建筑生效。取值：布尔值。默认值：0。
   * "render_key"（RenderKey属性，option）。含义：该buff的绘制资源名字。取值：字符串；key值。默认值：空。
   * "buff_effect_names"（BuffEffectNames属性，option）。含义：该buff可以产生的效果的名字列表。取值：字符串；形式："BuffEffectName;BuffEffectName;..."。默认值：0。
 
@@ -111,6 +117,7 @@ categories: jekyll update
   * "damage_nature"（DamageNature属性）。含义：damage为伤害还是治疗。取值：枚举{"heal","hurt"}。
   * "deliver_class"（DeliverClass属性，option）。含义：damage的deliver_class类别，仅在damage_nature为hurt有意义。取值：枚举deliver_class。默认值：undefined
   * "damage_distance"（DamageDistance属性，option）。含义：伤害的距离类别（远程、近战），仅在damage_nature为hurt有意义。取值：枚举{"faraway, nearby"}。默认值：undefined。
+  * "is_on_building"（IsOnBuilding属性，option）。含义：该伤害是否对建筑有效。取值：布尔值。默认值：false。
   * "feature_names"（FeatureNames属性，option）。含义：这次伤害/治疗附带的特性。取值：字符串；形式："FeatureName;FeatureName;..."。默认值：空。
 
 
@@ -159,10 +166,12 @@ categories: jekyll update
   * "level"（Level属性）。含义该主动技能的等级。取值：整数，[1 - max_level]。
   * "deliver_class"（DeliverClass属性）。含义：技能的deliver_class类别，（魔法、物理）。取值：枚举deliver_class。
   * "to_dead"（ToDead属性，option）。含义：技能是否队死亡单位释放。取值：布尔值。默认值：0。
+  * "is_on_building"（IsOnBuilding属性，option）。含义：技能是否可以对建筑释放。取值：布尔值。默认值：0。
   * "cast_distance"（CastDistance属性）。含义：技能的施法距离。取值：整数（地图最小单位）；-1为无距离限制。
   * "cast_type"（CastType属性）。含义：技能选取锚点的类别。取值：枚举{"self","position","unit","unit_but_self","position_or_unit"}，self表示技能永远选取施法者为锚点；postion表示技能选取指定位置为锚点；unit表示技能选取某个单位为锚点；unit_but_self表示技能选取除施法者以为的某个目标为锚点；position_or_unit表示技能选取位置或者某个单位为锚点；（不含二次选择操作的法术，锚点均为self）  
   * "immediate_elements"（ImmediateElements属性，option）。含义：技能释放时立即放出的技能元素。取值：字符串；形式，"SpellElement;SpellElement;..."。SpellElement取值。形式："{0},{1},{2}"，{0}为布尔值，表示技能元素是对施法者释放还是对锚点释放，值为1时表示对施法者；{1}为字符串，取值为`<spell_pattern>`的name属性；{2}为整数，表示该技能元素一次释放的生效次数。
   * "desc"（Desc属性，option）。含义：技能的文字描述。取值：字符串。
+  * "spell_radius"（SpellRadius属性，option）。含义：法术的影响范围，描述性信息，不产生实际影响。取值：整数：
   * "ai"（AI属性，option）。含义：技能AI规则描述名字。取值：字符串；key值。
   * 融合标签：`<condition>`，该法术施放的限制条件，仅检查条件，不做概率判定；`<skill>`，该法术的技能信息。
 
@@ -175,6 +184,7 @@ categories: jekyll update
   * "content_name"（ContentName属性）。含义：施法效果的内容的名字，取值为`<spell_content>`的name属性。取值：字符串；key值。
   * 当class为target_position_circle时
     * "radius"（radius属性）。含义：选取圆形范围的半径。取值：整数（地图最小单位）。
+    * "count"（count属性，option）。含义：选取范围内影响单位数量上限。取值：整数；-1为无上限。默认值：-1。
   * 融合标签：`<condition>`，描述选取施法目标限制条件。
 
 
