@@ -284,7 +284,7 @@ categories: jekyll update
   * 融合标签：`<addon>`，该等级对单位的加成。
 
           
- # `<addon>`
+# `<addon>`
  （Addon标签）。含义：描述对单位的加成信息的配置标签。
 
   * "name"（name属性）。含义：该加成信息的名字。取值：字符串；key值。
@@ -330,6 +330,7 @@ categories: jekyll update
 （Bullet标签）。含义：描述子弹的配置标签。
 
   * "name"（name属性）。含义：子弹的名字。取值：字符串；key值。
+  * "target_class"（TargetClass属性）。含义：子弹的目标类型。取值：枚举{"unit","position","unlimited"}，unit表示射向单位；position表示射向低点；unlimited表示沿直线发射。
   * "speed"（Speed属性）。含义：子弹的飞行速度。取值：整数；地图最小单位/秒。
   * "radius"（Radius属性，option）。含义：子弹半径。取值：整数；地图最小单位。默认值：0。
   * "sweep_on_the_way"（SweepOnTheWay属性，option）。含义：子弹是否会击中沿路的单位。取值：布尔值；1表示会击中。默认值：0。
@@ -337,6 +338,7 @@ categories: jekyll update
   * "deliver_nature"（DeliverNature属性，option）。含义：子弹影响的单位类型。取值：deliver_nature枚举。默认值：enemy。
   * "height"（Height属性，option）。含义：子弹的飞行高度。取值：浮点数。默认值：0。
   * "explode_radius"（ExplodeRadius属性，option）。含义：子弹的爆炸范围。取值：整数；地图单位。默认值：0。
+  * "flying_distance"（FlyingDistance属性，option）。含义：子弹的飞行距离，尽在target_class为unlimited时有效。取值：整数；地图单位；-1表示无飞行距离限制。默认值：-1。
   * "render_key"（RenderKey属性，option）。含义：子弹的绘制资源。取值：字符串；key值。
 
 
