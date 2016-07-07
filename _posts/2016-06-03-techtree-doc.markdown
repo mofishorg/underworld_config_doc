@@ -229,6 +229,7 @@ categories: jekyll update
 # `<magic_effect>`
 （MagicEffect标签）。含义：魔法实例所释放的单个效果。
 
+  * "magic_effect_name"（MagicEffectName属性）。含义：魔法实例释放效果的的名字。取值：字符串；key值。
   * "magic_effect_condition"（MagicEffectCondition属性）。含义：魔法实例释放效果的时机类型。取值：枚举{"loop","schedule"}，loop表示循环释放；schedule表示定时释放。
   * "magic_effect_spell_pattern_name"（MagicEffectSpellPatternName属性）。含义：魔法实例释放效果的名字（spell_pattern名字）。取值：字符串；key值。
   * "magic_effect_time"（MagicEffectTime属性，option）。含义：魔法实例释放效果的时机。取值：整数；时间单位。默认值：0。
