@@ -429,7 +429,7 @@ categories: jekyll update
 
   * deliver_nature枚举。含义：敌我类别的枚举。值域："ally"（友军），"enemy"（敌人）,"neutral"（友军和敌人）。
   * deliver_class枚举。含义：伤害类别的枚举。值域："physical"（物理），"magical"（魔法）。
-  * timing枚举。含义：战斗时机的枚举。值域："attack"（攻击时）,"settle_attack_damage_r1"（结算攻击伤害第一轮)，"settle_attack_damage_r2"（结算攻击伤害第二轮），"release_attack"（攻击被释放时），"be_attack"（被攻击时），"hit"（击中时），"be_hit"（被击中时），"settle_hurt_damage_r1"（结算受到伤害第一轮），"settle_hurt_damage_r2"（结算受到伤害第二轮）， "hurt"（造成伤害时），"be_hurt"（被伤害时），"kill"（杀死单位时），"be_kill"（被杀死时），"heal"（治疗时），"be_heal"（被治疗时），"settle_cure_damage_r1"（结算受到治疗第二轮），"cure"（造成恢复生命），"be_cure"（被恢复生命）
+  * timing枚举。含义：战斗时机的枚举。值域："attack"（攻击时）,"settle_attack_damage_r1"（结算攻击伤害第一轮)，"settle_attack_damage_r2"（结算攻击伤害第二轮），"release_attack"（攻击被释放时），"be_attack"（被攻击时），"hit"（击中时），"be_hit"（被击中时），"settle_hurt_damage_r1"（结算受到伤害第一轮），"settle_hurt_damage_r2"（结算受到伤害第二轮）， "hurt"（造成伤害时），"be_hurt"（被伤害时），"kill"（杀死单位时），"be_killed"（被杀死时），"heal"（治疗时），"be_heal"（被治疗时），"settle_cure_damage_r1"（结算受到治疗第二轮），"cure"（造成恢复生命），"be_cure"（被恢复生命）
   * field_type枚举。含义：单位所处的图层。值域："land"（陆地），"air"（天空）。
   * attribute_type枚举。含义：单位的属性种类。值域："max_hp"，"max_mp"，"sight"，"attack_sight"，"armor"，"magical_defense"，"attack_damage"，"attack_range"，"attack_speed"，"move_speed"。
   * state_type枚举。含义：单位的状态的种类。值域："unstoppable"，"physical_immune"，"magical_immune"，"holly"，"Immortal"，"unmoveable"，"stun"，"silence"，"disarm"
