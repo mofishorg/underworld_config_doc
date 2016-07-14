@@ -8,6 +8,7 @@ categories: jekyll update
 > 更新日志  
 > 7.14.2016  
 > 1. 增加了`<attack>`&`<attack_armor_rule>`标签；`<unit>`标签删除了"amror_perference"相关属性，增加了"attack_type"。  
+> 2. `<condition>`标签的下的条件类型增加了"unit_buff_number","unit_ally_buff_number","unit_enemy_buff_number"取值。  
 >
 > 6.17.2016  
 > 1. 为绝大部分添加了name属性。  
@@ -420,7 +421,7 @@ categories: jekyll update
   * "probability"（Probability属性，option）。含义：条件的触发概率。取值：整数[0 - 100]。默认值：undefined。
   * "deliver_nature"（DeliverNature属性，option）。含义：条件的敌我关系。取值：deliver_nature枚举。默认值：neutral。
   * "conditions"（Conditions属性，option）。含义：条件的限制条件。取值：字符串；形式："Condition\|Condition\|......."。默认值：空。
-  * Condition取值。形式："type:{0};target:{1};condition:{2}"，{0}描述条件的类型，取值为枚举{"unit_race","unit_class","armor_type","field_type","unit_hp","unit_lose_hp","unit_has_buff","unit_not_has_buff","deliver_class","damage_distance"}；{1}描述条件作用的目标，取值为枚举{"owner","opposite","damage"}；{2}描述条件的具体值，当条件为枚举条件时{2}的形式为"is:(not:)枚举值,枚举值,..."，当条件为数字值的时候{2}的形式为">(<)(=)LiteralValue"。
+  * Condition取值。形式："type:{0};target:{1};condition:{2}"，{0}描述条件的类型，取值为枚举{"unit_race","unit_class","armor_type","field_type","unit_hp","unit_lose_hp","unit_has_buff","unit_not_has_buff","unit_buff_number","unit_ally_buff_number","unit_enemy_buff_number","deliver_class","damage_distance"}；{1}描述条件作用的目标，取值为枚举{"owner","opposite","damage"}；{2}描述条件的具体值，当条件为枚举条件时{2}的形式为"is:(not:)枚举值,枚举值,..."，当条件为数字值的时候{2}的形式为">(<)(=)LiteralValue"。
 
 
 # `<heuristic>`
