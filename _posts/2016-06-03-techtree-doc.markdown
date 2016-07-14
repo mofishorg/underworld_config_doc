@@ -9,6 +9,8 @@ categories: jekyll update
 > 7.14.2016  
 > 1. 增加了`<attack>`&`<attack_armor_rule>`标签；`<unit>`标签删除了"amror_perference"相关属性，增加了"attack_type"。  
 > 2. `<condition>`标签的下的条件类型增加了"unit_buff_number","unit_ally_buff_number","unit_enemy_buff_number"取值。  
+> 3. attribute_type枚举增加"spell_cd_speed"取值。  
+> 4. `<unit>`的"class"属性增加"summoned"取值；增加"profession"字段。  
 >
 > 6.17.2016  
 > 1. 为绝大部分添加了name属性。  
@@ -259,7 +261,8 @@ categories: jekyll update
 （Unit标签）。含义：描述单个单位的配置标签。
 
   * "name"（Name属性）。含义：该单位的名字。取值：字符串；key值。
-  * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","hero","building","core"}。
+  * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","summoned","hero","building","core"}。
+  * "profession"（Profession属性）。含义：单位的定位。取值：枚举{"tank","rogue","archer","mage","crazy_fucker","no_one"}。
   * "race"（UnitRace属性）。含义：该单位的种族。取值：字符串；key值。
   * "talent_name"（TalentName属性，option）。含义：该单位的天赋名称。取值：字符；key值。
   * "upgrade_talents"（UpgradeTalents属性，option）。含义：该单位可升级到的天赋名称。取值：字符串；形式，"{0};..."，{0}为字符串，取值为单位名称。
@@ -450,7 +453,7 @@ categories: jekyll update
   * deliver_class枚举。含义：伤害类别的枚举。值域："physical"（物理），"magical"（魔法）。
   * timing枚举。含义：战斗时机的枚举。值域："attack"（攻击时）,"settle_attack_damage_r1"（结算攻击伤害第一轮)，"settle_attack_damage_r2"（结算攻击伤害第二轮），"release_attack"（攻击被释放时），"be_attack"（被攻击时），"hit"（击中时），"be_hit"（被击中时），"settle_hurt_damage_r1"（结算受到伤害第一轮），"settle_hurt_damage_r2"（结算受到伤害第二轮）， "hurt"（造成伤害时），"be_hurt"（被伤害时），"kill"（杀死单位时），"be_killed"（被杀死时），"heal"（治疗时），"be_heal"（被治疗时），"settle_cure_damage_r1"（结算受到治疗第二轮），"cure"（造成恢复生命），"be_cure"（被恢复生命）
   * field_type枚举。含义：单位所处的图层。值域："land"（陆地），"air"（天空）。
-  * attribute_type枚举。含义：单位的属性种类。值域："max_hp"，"max_mp"，"sight"，"attack_sight"，"armor"，"magical_defense"，"attack_damage"，"attack_range"，"attack_speed"，"move_speed"。
+  * attribute_type枚举。含义：单位的属性种类。值域："max_hp"，"max_mp"，"sight"，"attack_sight"，"armor"，"magical_defense"，"attack_damage"，"attack_range"，"attack_speed"，"move_speed"，"spell_cd_speed"。
   * state_type枚举。含义：单位的状态的种类。值域："unstoppable"，"physical_immune"，"magical_immune"，"holly"，"Immortal"，"unmoveable"，"stun"，"silence"，"disarm"
   * LiteralValue取值。含义：直接数值取值。形式："p:整数"或者"整数"，前者表示基础值的百分比，后者表示直接值。
   * DynamicValue取值。含义：动态数值取值。形式："LiteralValue"或者"d:target:{0};type:{1};v:{2};template:{3}"，前者等同于LiteralValue；后者{0}表示动态值的判断目标，取值枚举{"owner","opposite"}，{1}表示动态值得取值方式，取值为枚举{"literal","hp",""max_hp", "armor", "attack_damage","attack_speed"}，{2}表示取值后相乘的系数，取值为LiteralValue（百分比形式），{3}表示取值应用于的Literal模板，取值为LiteralValue。
