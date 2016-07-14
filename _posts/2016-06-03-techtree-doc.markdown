@@ -5,7 +5,7 @@ date:   2016-06-03 18:45:26 +0800
 categories: jekyll update
 ---
 
-> 更新日志
+> 更新日志  
 > 7.14.2016
 > 1. 增加了`<attack>`&`<attack_armor_rule>`标签；`<unit>`标签删除了"amror_perference"相关属性，增加了"attack_type"。  
 >
