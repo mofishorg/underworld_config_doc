@@ -6,6 +6,8 @@ categories: jekyll update
 ---
 
 > 更新日志
+> 7.14.2016
+> 1. 增加了`<attack>`&`<attack_armor_rule>`标签；`<unit>`标签删除了"amror_perference"相关属性，增加了"attack_type"。  
 >
 > 6.17.2016  
 > 1. 为绝大部分添加了name属性。  
@@ -58,11 +60,28 @@ categories: jekyll update
   * "max"（Max属性，option）。含义：资源的上限。取值：整数。默认值：-1表示无上限。
 
 
+# `<attack>`
+
+（AttackType标签，复数）。含义：描述单位的攻击类型的配置标签。
+
+  * "name"（Name属性）。含义：攻击类型的名字。取值：字符串；key值。
+
+
 # `<armor>`
 
 （ArmorType标签，复数）。含义：描述单位护甲类型的配置标签。
   
   * "name"（Name属性）。含义：护甲类型的名字。取值：字符串；key值。
+
+
+# `<attack_armor_rule>`
+
+（AttackArmorRule标签，复数）。含义：描述攻击类型vs护甲类型的系数规则。
+
+  * "name"（Name属性）。含义：规则的名字。取值：字符串；key值。
+  * "attack_type"（AttackType属性）。含义：攻击类型的名字。取值：字符串；`<attack>`的"name"属性。
+  * "armor_type"（ArmorType属性）。含义：护甲类型的名字。取值：字符串；`<armor>`的"name"属性。
+  * "value"（Value属性）。含义：规则系数。取值：LiteralValue。
 
 
 # `<armor_rule>`
@@ -246,10 +265,9 @@ categories: jekyll update
   * "rarity"（Rarity属性，option）。含义：该单位的稀有度。取值：整数。默认值：0。
   * "hp"（Hp属性，option）。含义：单位的最大生命值。取值：整数。默认值：0。
   * "field"（Field属性，option）。含义：单位默认处于的field。取值：枚举field_type。默认值：land。
+  * "attack_type"（AttackType属性，option）。含义：单位的攻击类型。取值：字符串；`<attack>`的name属性。
   * "armor_type"（ArmorType属性）。含义：单位的护甲类型。取值：字符串；ArmorType的name属性。
   * "armor"（Armor属性，option）。含义：单位的护甲值。取值：整数。默认值：0。
-  * "armor_preference"（ArmorPreference属性，option）。含义：单位的护甲偏好。取值：字符串；ArmorType的name属性。默认值：空。
-  * "armor_preference_factor"（ArmorPreferenceFactor属性，option）。含义：单位的护甲偏好系数。取值：LiteralValue。默认值：p:0。
   * "magical_defense"（MagicalDefense属性，option）。含义：单位魔抗值。取值：整数。默认值：0。
   * "sight"（Sight属性，option）。含义：单位视野半径。取值：整数（地图最小单位）。默认值：0。
   * "attack_sight"（AttackSight属性）。含义：单位警戒半径。取值：整数（地图最小单位）。
