@@ -265,7 +265,7 @@ categories: jekyll update
 
   * "name"（Name属性）。含义：该单位的名字。取值：字符串；key值。
   * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","summoned","hero","building","core"}。
-  * "profession"（Profession属性）。含义：单位的定位。取值：枚举{"tank","rogue","archer","mage","crazy_fucker","no_one"}。
+  * "profession"（Profession属性，option）。含义：单位的定位。取值：枚举{"tank","rogue","archer","mage","crazy_fucker","no_one"}。默认值：no_one。
   * "race"（UnitRace属性）。含义：该单位的种族。取值：字符串；key值。
   * "talent_name"（TalentName属性，option）。含义：该单位的天赋名称。取值：字符；key值。
   * "upgrade_talents"（UpgradeTalents属性，option）。含义：该单位可升级到的天赋名称。取值：字符串；形式，"{0};..."，{0}为字符串，取值为单位名称。
@@ -427,7 +427,7 @@ categories: jekyll update
   * "probability"（Probability属性，option）。含义：条件的触发概率。取值：整数[0 - 100]。默认值：undefined。
   * "deliver_natures"（DeliverNature属性，option）。含义：条件的敌我关系。取值：字符串；形式："DeliverNature\|DeliverNature\|..."，DeliverNature取值为deliver_nature枚举。默认值：空。
   * "conditions"（Conditions属性，option）。含义：条件的限制条件。取值：字符串；形式："Condition&Condition&...\|Condition&Condition&...\|..."。默认值：空。
-  * Condition取值。形式："type:{0};target:{1};condition:{2}"，{0}描述条件的类型，取值为枚举{"unit_race","unit_class","attack_type","armor_type","field_type","unit_hp","unit_lose_hp","unit_has_buff","unit_not_has_buff","unit_buff_number","unit_ally_buff_number","unit_enemy_buff_number","deliver_class","damage_distance"}；{1}描述条件作用的目标，取值为枚举{"owner","opposite","damage"}；{2}描述条件的具体值，当条件为枚举条件时{2}的形式为"is:(not:)枚举值,枚举值,..."，当条件为数字值的时候{2}的形式为">(<)(=)LiteralValue"。
+  * Condition取值。形式："type:{0};target:{1};condition:{2}"，{0}描述条件的类型，取值为枚举{"unit_race","unit_class","unit_profession","attack_type","armor_type","field_type","unit_hp","unit_lose_hp","unit_has_buff","unit_not_has_buff","unit_buff_number","unit_ally_buff_number","unit_enemy_buff_number","deliver_class","damage_distance"}；{1}描述条件作用的目标，取值为枚举{"owner","opposite","damage"}；{2}描述条件的具体值，当条件为枚举条件时{2}的形式为"is:(not:)枚举值,枚举值,..."，当条件为数字值的时候{2}的形式为">(<)(=)LiteralValue"。
 
 
 # `<heuristic>`
