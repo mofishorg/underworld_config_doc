@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Resource配置文档"
+title:  "Resource 配置文档"
 date:   2016-08-08 14:56:00 +0800
 categories: jekyll update
 ---
