@@ -5,6 +5,10 @@ date:   2016-08-08 14:56:00 +0800
 categories: jekyll update
 ---
 
+# 资源命名规则
+PVR: resource_preifx/pose_prefix/body/directionId
+CSB: resource_preifx-pose_prefix-directionId.csb
+
 # UnitResourceConfig.xml
 
 单位资源配置表，每个标签表示一种单位的资源配置
@@ -14,9 +18,7 @@ categories: jekyll update
   * "multi_direction"。含义：单位资源是否为多方向的。取值：布尔值。默认值：1。
   * "transform_on_health"。含义：单位资源是否随健康状况改变。取值：布尔值。默认值：0。
   * "anim_type"。含义：单位资源的类型。取值：枚举{"pvr", "csb"}。
-  * "normal_prefix"。含义：健康的单位身体资源前缀。取值：字符串。
-  * "shadow_prefix"。含义：单位的影子资源前缀。取值：字符串。
-  * "damaged_prefix"。含义：受伤的单位身体资源前缀。取值：字符串。
+  * "normal_prefix"。含义：单位资源前缀。取值：字符串。
   * "attck_sound"。含义：单位发出攻击的声音资源。取值：字符串。
   * "hurt_sound"。含义：单位受到伤害的声音资源。取值：字符串。
   * "die_sound"。含义：单位死亡的声音资源。取值：字符串。
@@ -29,6 +31,8 @@ categories: jekyll update
   * "hp_bar_pos_x"。含义：血条的绑定位置的x坐标。取值：浮点数；相对锚点的像素值。
   * "hp_bar_pos_y"。含义：血条的绑定位置的y坐标。取值：浮点数；相对锚点的像素值。
   * "hp_bar_scale_x"。含义：血条的缩放比例。取值：浮点数。默认值：1.f。
+  * "move_duration_scale"。含义：移动动画的播放速度比例。取值：浮点数。默认值：1.f。
+  * "stand_duration_scale"。含义：待机动画的播放速度比例。取值：浮点数。默认值：1.f。
 
 
 # BulletResourceConfig.xml
