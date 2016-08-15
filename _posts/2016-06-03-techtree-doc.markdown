@@ -6,6 +6,10 @@ categories: jekyll update
 ---
 
 > 更新日志  
+> 8.15.2016  
+> 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
+> 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
+>
 > 7.19.2016  
 > 1. 更新了`<condition>`标签的配置方式。
 >
@@ -111,6 +115,7 @@ categories: jekyll update
 
   * "alias"（Alias属性）。含义：buff的类别。取值：字符串；key指。
   * "unique_on_unit"（UniqueOnUnit属性，option）。含义：该类buff是否在单个单位上仅有一个生效。取值：布尔值。默认值：0。
+  * "id"（id属性）。含义：buff的id。取值：字符串；key值。
   * "name"（Name属性）。含义：buff的名字。取值：字符串；key值。
   * "level"（Level属性）。含义：buff在自身类别中的等级。取值：整数。
   * "deliver_nature"（DeliverNature属性）。含义：buff的deliverNature类别（有益、有害等）。取值：枚举deliver_nature。
@@ -167,6 +172,7 @@ categories: jekyll update
 （PassiveType标签，复数）。含义：描述单个被动技能的配置标签。
 
   * "alias"（alias属性）。含义：该被动技能的归类名称，不同等级的同一技能被称为同一被动技能归类。取值：字符串；key值。
+  * "id"（id属性）。含义：被动技能的id。取值：整数；key值。
   * "name"（name属性）。含义：该被动技能的唯一名称。取值：字符串；key值。
   * "level"（level属性）。含义：该被动技能的等级。取值：整数，[1 - max_level]。
   * "buff_types"（BuffTypes属性，option）。含义：该被动技能活跃时给持有者提供的buff种类。取值：字符串；形式，"BuffName;BuffName;..."。默认值：空。
@@ -187,6 +193,7 @@ categories: jekyll update
 # `<spell>`
 （SpellType标签，复数）。含义：描述单个主动技能的配置标签。
 
+  * "id"（id属性）。含义：法术的id。取值：整数；key值。
   * "alias"（alias属性）。含义：该主动技能的归类名称，不同等级的同一技能称为同一主动技能归类。取值：字符串；key值。
   * "spell_name"（SpellName属性）。含义：该主动技能的唯一名称。取值：字符串；key值。
   * "level"（Level属性）。含义该主动技能的等级。取值：整数，[1 - max_level]。
@@ -263,6 +270,7 @@ categories: jekyll update
 # `<unit>`
 （Unit标签）。含义：描述单个单位的配置标签。
 
+  * "id"（Id属性）。含义：该单位的Id。取值：整数：key值。
   * "name"（Name属性）。含义：该单位的名字。取值：字符串；key值。
   * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","summoned","hero","building","core"}。
   * "profession"（Profession属性，option）。含义：单位的定位。取值：枚举{"tank","rogue","archer","mage","crazy_fucker","no_one"}。默认值：no_one。
@@ -296,7 +304,7 @@ categories: jekyll update
 # `<unit_setting>`
 （unit_setting标签）。含义：单位的生成信息。
 
-  * "unit_setting_name"（name属性）。含义：单位的名字。取值：字符串；key值。
+  * "unit_setting_id"（id属性）。含义：单位的id。取值：整数；key值。
   * "unit_setting_level"（level属性，option）。含义：单位的属性。取值：整数。默认值：0。
   * "unit_setting_quality"（quality属性，option）。含义：单位的品质。取值：整数。默认值：0。
   * "unit_setting_talent"（talent属性，option）。含义：单位的天赋等级。取值：整数。默认值：0。
