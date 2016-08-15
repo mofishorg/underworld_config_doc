@@ -9,6 +9,7 @@ categories: jekyll update
 > 8.15.2016  
 > 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
 > 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
+> 3. `<addon>`的attribute_addons属性的分隔符从';'改为','。  
 >
 > 7.19.2016  
 > 1. 更新了`<condition>`标签的配置方式。
@@ -323,7 +324,7 @@ categories: jekyll update
  （Addon标签）。含义：描述对单位的加成信息的配置标签。
 
   * "name"（name属性）。含义：该加成信息的名字。取值：字符串；key值。
-  * "attribute_addons"（AttributeAddons属性，option）。含义：加成信息所更改的单位属性。取值：字符串；形式："{0}:{1};..."，{0}取值枚举attribute_type，{1}取值为LiteralValue。默认值：空。
+  * "attribute_addons"（AttributeAddons属性，option）。含义：加成信息所更改的单位属性。取值：字符串；形式："{0},{1};..."，{0}取值枚举attribute_type，{1}取值为LiteralValue。默认值：空。
   * "passive_addons"（PassiveAddons属性，option）。含义：加成信息所提供的被动技能。取值：字符串；形式："PassiveTypeName;PassiveTypeName;..."。默认值：空。
   * "spell_addons"（PassiveAddons属性，option）。含义：加成信息所提供的主动技能。取值：字符串；形式，"SpellTypeName;SpellTypeName;..."。默认值：空。
   * "feature_addons"（FeatureAddons属性，option）。含义：加成信息所提供的特性。取值：字符串；形式，"FeatureGroupName;FeatureGroupName;..."。默认值：空。

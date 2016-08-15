@@ -12,6 +12,7 @@ categories: jekyll update
 
 （CardType标签，复数）。含义：描述单个在战斗中可以使用的卡牌。
 
+  * "id"（Id属性）。含义：卡牌的id。取值：整数；key值。
   * "name"（Name属性）。含义：卡牌的名字。取值：字符串；key值。
   * "card_class"（CardClass属性）。含义：卡牌的类型。取值：枚举{"tower","spell","summon"}，tower表示防御塔卡牌，spell表示法术卡牌，summon表示召唤单位卡牌。
   * "cost"（Cost属性）。含义：卡牌的使用花费。取值：字符串；形式："{0}:{1};...."，{0}为字符串，表示花费资源的名字；{1}为整数，表示花费资源的数量。
