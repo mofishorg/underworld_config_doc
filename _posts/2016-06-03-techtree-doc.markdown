@@ -10,7 +10,8 @@ categories: jekyll update
 > 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
 > 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
 > 3. `<addon>`的attribute_addons属性的分隔符从';'改为','。  
-> 4. `<unit>`加入timed属性，表示单位生存时间。  
+> 4. `<unit>`加入timed属性，表示单位生存时间。 
+> 5. 加入标签`<unit_attack_ai_description>`，`<unit>`标签加入'attack_ai'字段。  
 >
 > 7.19.2016  
 > 1. 更新了`<condition>`标签的配置方式。
@@ -292,6 +293,7 @@ categories: jekyll update
   * "height"（Height属性，option）。含义：单位的Z轴高度。取值：整数（地图最小单位）。默认值：0。
   * "reward"（reward属性，option）。含义：单位被杀死时奖励的资源。取值：字符串；形式，"{0}:{1};..."，{0}为字符串，取值为ResourceType的name，{1}为整数，表示所需资源数量。默认值：空。
   * "occupy"（Occupy属性，option）。含义：单位的碰撞体积十分生效。取值：布尔值。默认值：1。
+  * "attack_ai"（AttackAI属性，option）。含义：单位的攻击AI名字。取值：字符串；key值；`<unit_attack_ai_description>`的名字属性。
   * "passive_names"（PassiveNames属性，option）。含义：单位具有的被动技能名称。取值：字符串；形式："PassiveTypeName;PassiveTypeName;..."。默认值：空。
   * "spell_names"（SpellNames属性，option）。含义：单位具有的主动技能名称。取值：字符串；形式："SpellTypeName;SpellTypeName;..."。默认值：空。
   * "produce_names"（ProduceNames属性，option）。含义：单位具有的生产技能的名称。取值：字符串；形式："SkillTypeName;SkillTypeName..."。默认值：空。
@@ -301,7 +303,14 @@ categories: jekyll update
   * "max_quality"（MaxQuality属性，option）。含义：单位的组大品质。取值：整数。默认值：0。
   * "max_talent_level"（MaxTalentLevel属性，option）。含义：单位的最大天赋等级。取值：整数。默认值：0。
   * "render_key"（RenderKey属性）。含义：单位的绘制资源名称。取值：字符串；key值。
+  * "timed"（Timed属性，option）。含义：单位的生存时间。取值：整数；时间最小单位；-1表示无限。默认值：-1。
 
+
+# `<unit_attack_ai_description>`
+（unit_attack_ai_description标签）。含义：单位的攻击AI描述。
+
+  * "name"（name属性）。含义：攻击AI的名字。取值：字符串；key值。
+  * 融合标签：`<condition>`，描述选择攻击目标的筛选条件；`<heuristic>`，描述选择攻击目标的优先评价方法。
 
 # `<unit_setting>`
 （unit_setting标签）。含义：单位的生成信息。
