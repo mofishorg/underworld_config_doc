@@ -10,6 +10,7 @@ categories: jekyll update
 > 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
 > 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
 > 3. `<addon>`的attribute_addons属性的分隔符从';'改为','。  
+> 4. `<unit>`加入timed属性，表示单位生存时间。  
 >
 > 7.19.2016  
 > 1. 更新了`<condition>`标签的配置方式。
