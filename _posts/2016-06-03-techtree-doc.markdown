@@ -9,7 +9,7 @@ categories: jekyll update
 > 8.15.2016  
 > 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
 > 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
-> 3. `<addon>`的attribute_addons属性的分隔符从';'改为','。  
+> 3. `<addon>`的attribute_addons属性的分隔符从':'改为','。  
 > 4. `<unit>`加入timed属性，表示单位生存时间。 
 > 5. 加入标签`<unit_attack_ai_description>`，`<unit>`标签加入'attack_ai'字段。  
 >
