@@ -478,7 +478,7 @@ categories: jekyll update
   * attribute_type枚举。含义：单位的属性种类。值域："max_hp"，"max_mp"，"sight"，"attack_sight"，"armor"，"magical_defense"，"attack_damage"，"attack_range"，"attack_speed"，"move_speed"，"spell_cd_speed"。
   * state_type枚举。含义：单位的状态的种类。值域："unstoppable"，"physical_immune"，"magical_immune"，"holly"，"Immortal"，"unmoveable"，"stun"，"silence"，"disarm"
   * LiteralValue取值。含义：直接数值取值。形式："p:整数"或者"整数"，前者表示基础值的百分比，后者表示直接值。
-  * DynamicValue取值。含义：动态数值取值。形式："LiteralValue"或者"d:target:{0};type:{1};v:{2};template:{3}"，前者等同于LiteralValue；后者{0}表示动态值的判断目标，取值枚举{"owner","opposite"}，{1}表示动态值得取值方式，取值为枚举{"literal","hp",""max_hp", "armor", "attack_damage","attack_speed"}，{2}表示取值后相乘的系数，取值为LiteralValue（百分比形式），{3}表示取值应用于的Literal模板，取值为LiteralValue。
+  * DynamicValue取值。含义：动态数值取值。形式："LiteralValue"或者"d:target:{0};type:{1};v:{2};template:{3}"，前者等同于LiteralValue；后者{0}表示动态值的判断目标，取值枚举{"owner","opposite"}，{1}表示动态值得取值方式，取值为枚举{"literal", "hp", "lose_hp", max_hp", "hp_percentage" , "lose_hp_percentage", "armor", "attack_damage", "attack_speed"}，{2}表示取值后相乘的系数，取值为LiteralValue（百分比形式），{3}表示取值应用于的Literal模板，取值为LiteralValue。
 
 
 
