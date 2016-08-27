@@ -6,6 +6,9 @@ categories: jekyll update
 ---
 
 > 更新日志  
+> 8.27.2106  
+> 1. `<spell_content>`标签的"spell_content_class"属性加入"blink"取值。  
+>
 > 8.15.2016  
 > 1. `<unit>`&`<buff>`&`<passive>`&`<spell>`加入id字段。  
 > 2. `<unit_setting>`的unit_setting_name变为unit_setting_id。  
@@ -228,7 +231,7 @@ categories: jekyll update
 （spellContent标签）。含义：施法内容的描述。
 
   * "name"（name属性）。含义：施法内容的名字。取值：字符串；key值。
-  * "spell_content_class"（spellContentClass属性）。含义：施法内容的类型。取值：枚举{"damage","bullet", "summon","revive","magic"}，damage表示对目标施加伤害；bullet表示对目标放出子弹；summon表示召唤单位；revive表示复活单位；magic表示释放魔法实例。
+  * "spell_content_class"（spellContentClass属性）。含义：施法内容的类型。取值：枚举{"damage","bullet", "summon","revive","magic","blink"}，damage表示对目标施加伤害；bullet表示对目标放出子弹；summon表示召唤单位；revive表示复活单位；magic表示释放魔法实例。
   * 当spell_content_class为damage时
      * "spell_content_damage_name"（SpellContentDamageName属性）。含义：施加的伤害的名字，取值为`<damage>`的name属性。取值：字符串；key值。
   * 当spell_content_class为bullet时
