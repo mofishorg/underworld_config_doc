@@ -44,6 +44,8 @@ CSB: resource_preifx-pose_prefix-directionId.csb
   * "shadow_resource"。含义：子弹影子的资源文件。取值：字符串。
   * "explode_resource"。含义：子弹爆炸的资源文件。取值：字符串。
   * "explode_sound"。含义：子弹爆炸声音的资源文件。取值：字符串。
+  * "scaleX"。含义：子弹的X缩放比例。取值：浮点数。默认值：1.f。
+  * "scaleY"。含义：子弹的Y缩放比例。取值：浮点数。默认值：1.f。
 
 
 # SpellConfig.xml
@@ -59,3 +61,12 @@ CSB: resource_preifx-pose_prefix-directionId.csb
   * "foreground_resource"。含义：法术效果的前景资源。取值：字符串。
   * "background_resource"。含义：法术效果的背景资源。取值：字符串。
   * "effect_sound"。含义：法术效果的声音资源。取值：字符串。
+  * "scale"。含义：法术效果的缩放比例。取值：浮点数。默认值：1.f。
+
+# CardConfig.xml
+
+卡片资源的配置表。
+
+  * "id"。含义：卡片的id。取值：整数；key值。
+  * "icon"。含义：卡片的icon。取值：字符串。默认值：空。
+  * "tips"。含义：法术卡片指示物的资源名称。取值：字符串。默认值：空。

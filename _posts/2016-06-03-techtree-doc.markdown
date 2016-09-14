@@ -6,7 +6,11 @@ categories: jekyll update
 ---
 
 > 更新日志  
-> 8.27.2106  
+> 9.14.2016  
+> 1.`<unit>`标签增加"manual_spell_alias"和"init_time"属性。  
+> 2.`<spell>`标签增加"render_key"和"icon"属性。  
+>
+> 8.27.2016  
 > 1. `<spell_content>`标签的"spell_content_class"属性加入"blink"取值。  
 >
 > 8.15.2016  
@@ -212,6 +216,8 @@ categories: jekyll update
   * "desc"（Desc属性，option）。含义：技能的文字描述。取值：字符串。
   * "spell_radius"（SpellRadius属性，option）。含义：法术的影响范围，描述性信息，不产生实际影响。取值：整数：
   * "ai"（AI属性，option）。含义：技能AI规则描述名字。取值：字符串；key值。
+  * "render_key"（RenderKey属性，option）。含义：技能释放时释放者的法术特效。取值：字符串；key值。
+  * "icon"（Icon属性，option）。含义：技能图标。取值：字符串；key值。
   * 融合标签：`<condition>`，该法术施放的限制条件，仅检查条件，不做概率判定；`<skill>`，该法术的技能信息。
 
 
@@ -221,6 +227,7 @@ categories: jekyll update
   * "name"（Name属性）。含义：施法效果的名字。取值：字符串；key值。
   * "class"（SpellPatternClass属性）。含义：施法效果的模式类别。取值：枚举{"target","target_position_circle","all"}，target表示对施法；target_position_circle表示对施法目标位置为圆心的圆形范围内的单位施法；all表示对战场上所有单位施法。
   * "content_name"（ContentName属性）。含义：施法效果的内容的名字，取值为`<spell_content>`的name属性。取值：字符串；key值。
+  * "render_key"（Renderkey属性）。含义：施法效果生效是时的法术特效。取值：字符串；key值。
   * 当class为target_position_circle时
     * "radius"（radius属性）。含义：选取圆形范围的半径。取值：整数（地图最小单位）。
     * "count"（count属性，option）。含义：选取范围内影响单位数量上限。取值：整数；-1为无上限。默认值：-1。
@@ -299,6 +306,7 @@ categories: jekyll update
   * "attack_ai"（AttackAI属性，option）。含义：单位的攻击AI名字。取值：字符串；key值；`<unit_attack_ai_description>`的名字属性。
   * "passive_names"（PassiveNames属性，option）。含义：单位具有的被动技能名称。取值：字符串；形式："PassiveTypeName;PassiveTypeName;..."。默认值：空。
   * "spell_names"（SpellNames属性，option）。含义：单位具有的主动技能名称。取值：字符串；形式："SpellTypeName;SpellTypeName;..."。默认值：空。
+  * "manual_spell_alias"（ManualSpellAlias属性，option）。含义：单位不会自动释放的主动技能的alias。取值：字符串；形式："SpellAlias;SpellAlias;..."。默认值：空。
   * "produce_names"（ProduceNames属性，option）。含义：单位具有的生产技能的名称。取值：字符串；形式："SkillTypeName;SkillTypeName..."。默认值：空。
   * "skill_names"（SkillNames属性，option）。含义：单位具有的基础技能的名称。取值：字符串；形式："ProduceTypeName;ProduceTypeName..."。默认值：空。
   * "feature_names"（FeatureNames属性，option）。含义：单位具有的特性的名称。取值：字符串；形式："FeatureGroupName;FeatureGroupName..."。默认值：空。
@@ -307,6 +315,7 @@ categories: jekyll update
   * "max_talent_level"（MaxTalentLevel属性，option）。含义：单位的最大天赋等级。取值：整数。默认值：0。
   * "render_key"（RenderKey属性）。含义：单位的绘制资源名称。取值：字符串；key值。
   * "timed"（Timed属性，option）。含义：单位的生存时间。取值：整数；时间最小单位；-1表示无限。默认值：-1。
+  * "init_time"（InitTime属性，option）。含义：单位出生后的硬直时间。取值：整数；时间最小单位；0表示不会硬直。默认值：0。
 
 
 # `<unit_attack_ai_description>`
@@ -356,7 +365,7 @@ categories: jekyll update
      * "max_damage"（MaxDamage属性）。含义：攻击力上限。取值：整数。
      * "range"（Range属性）。含义：攻击范围。取值：整数（地图最小单位）。
      * "fields"（Fields属性）。含义：攻击可达的Field。取值：1为对地，2为对空，3为对地对空。
-     * "unit_classes"（UnitClasses属性）。含义：可攻击的Unit类型。取值：整数；一共4位从高到低表示core，building，hero，warrior。
+     * "unit_classes"（UnitClasses属性）。含义：可攻击的Unit类型。取值：整数；一共4位从高到低表示core，building，hero，summoned，warrior。
      * "deliver_class"（DeliverClass属性，option）。含义：伤害的DeliverClass类别。取值：枚举deliver_class。默认值：undefined。
      * "damage_distance"（DamageDistance属性）。含义：伤害的DamageDistance类别。取值：枚举damage_distance。
      * "bullet_name"（BulletName属性，option）。含义：该次攻击是否有子弹以及子弹信息。取值：字符串；key值。默认值：空。
