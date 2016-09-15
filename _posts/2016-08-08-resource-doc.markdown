@@ -5,6 +5,16 @@ date:   2016-08-08 14:56:00 +0800
 categories: jekyll update
 ---
 
+> 更新日志  
+> 9.15.2016  
+> 1.增加EffectData取值。    
+> 2.BulletResourceConfig.xml删除ScaleX, ScaleY；部分配置取值改为EffectData。    
+> 3.SpellConfig.xml删除Scale；部分配置取值改为EffectData。  
+> 4.CardConfig.xml的tips取值改为EffectData。  
+>
+
+<br/<
+
 # 资源命名规则
 PVR: resource_preifx/pose_prefix/body/directionId
 CSB: resource_preifx-pose_prefix-directionId.csb
@@ -40,12 +50,10 @@ CSB: resource_preifx-pose_prefix-directionId.csb
 子弹资源配置表，每个标签表示一种子弹的资源配置
 
   * "render_key"。含义：子弹资源的名字。取值：字符串；key值。
-  * "resource"。含义：子弹本体的资源文件。取值：字符串。
-  * "shadow_resource"。含义：子弹影子的资源文件。取值：字符串。
-  * "explode_resource"。含义：子弹爆炸的资源文件。取值：字符串。
+  * "resource"。含义：子弹本体的资源文件。取值：EffectData。
+  * "shadow_resource"。含义：子弹影子的资源文件。取值：EffectData。
+  * "explode_resource"。含义：子弹爆炸的资源文件。取值：EffectData。
   * "explode_sound"。含义：子弹爆炸声音的资源文件。取值：字符串。
-  * "scaleX"。含义：子弹的X缩放比例。取值：浮点数。默认值：1.f。
-  * "scaleY"。含义：子弹的Y缩放比例。取值：浮点数。默认值：1.f。
 
 
 # SpellConfig.xml
@@ -58,10 +66,9 @@ CSB: resource_preifx-pose_prefix-directionId.csb
   * "spell_render_layer"。含义：法术资源的绘制层级。取值：0表示地面，1表示影子，2表示陆地脚下，3表示陆地，4表示空中脚下，5表示空中。
   * "spell_height"。含义：法术资源的绘制高度。取值：整数；地图最小单位。
   * "loop"。含义：法术资源十分为循环动画。取值：布尔值。默认值：1。
-  * "foreground_resource"。含义：法术效果的前景资源。取值：字符串。
-  * "background_resource"。含义：法术效果的背景资源。取值：字符串。
+  * "foreground_resource"。含义：法术效果的前景资源。取值：EffectData。
+  * "background_resource"。含义：法术效果的背景资源。取值：EffectData。
   * "effect_sound"。含义：法术效果的声音资源。取值：字符串。
-  * "scale"。含义：法术效果的缩放比例。取值：浮点数。默认值：1.f。
 
 # CardConfig.xml
 
@@ -69,4 +76,7 @@ CSB: resource_preifx-pose_prefix-directionId.csb
 
   * "id"。含义：卡片的id。取值：整数；key值。
   * "icon"。含义：卡片的icon。取值：字符串。默认值：空。
-  * "tips"。含义：法术卡片指示物的资源名称。取值：字符串。默认值：空。
+  * "tips"。含义：法术卡片指示物的资源名称。取值：EffectData.。
+
+# 取值
+  * EffectData取值。含义：资源文件的描述。形式："{0};{1};{2}"，{0}表示资源的名称，为字符串，{1}表示资源的缩放比例，为浮点数，默认值1.f，{2}表示资源的帧率，为整数，默认值12。
