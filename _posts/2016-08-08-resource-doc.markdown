@@ -54,6 +54,9 @@ CSB: resource_preifx-pose_prefix-directionId.csb
   * "shadow_resource"。含义：子弹影子的资源文件。取值：EffectData。
   * "explode_resource"。含义：子弹爆炸的资源文件。取值：EffectData。
   * "explode_sound"。含义：子弹爆炸声音的资源文件。取值：字符串。
+  * "material"。含义：子弹材质。取值：枚举{"arrow","cannon"}。默认值："arrow"。
+  * "tail_gas"。含义：子弹飞行烟雾。取值：字符串；形式"EffectData|EffectData|..."。
+  * "tail_gas_interval"。含义：子弹烟雾间距。取值：整数，地图最小单位。
 
 
 # SpellConfig.xml
