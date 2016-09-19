@@ -9,7 +9,8 @@ categories: jekyll update
 > 9.14.2016  
 > 1.`<unit>`标签增加"manual_spell_alias"和"init_time"属性。  
 > 2.`<spell>`标签增加"render_key"和"icon"属性。  
-> 3.`<unit>`的"class"属性增加"elite"取值
+> 3.`<unit>`的"class"属性增加"elite"取值。  
+> 4.`<spell>`标签加入"shadow_distance"属性。  
 >
 > 8.27.2016  
 > 1. `<spell_content>`标签的"spell_content_class"属性加入"blink"取值。  
@@ -212,6 +213,7 @@ categories: jekyll update
   * "to_dead"（ToDead属性，option）。含义：技能是否队死亡单位释放。取值：布尔值。默认值：0。
   * "is_on_building"（IsOnBuilding属性，option）。含义：技能是否可以对建筑释放。取值：布尔值。默认值：0。
   * "cast_distance"（CastDistance属性）。含义：技能的施法距离。取值：整数（地图最小单位）；-1为无距离限制。
+  * "shadow_distance"（ShadowDistance属性，option）。含义：技能盲区。取值：整数，地图最小单位；0为无盲区。默认值：0。
   * "cast_type"（CastType属性）。含义：技能选取锚点的类别。取值：枚举{"self","position","unit","unit_but_self","position_or_unit"}，self表示技能永远选取施法者为锚点；postion表示技能选取指定位置为锚点；unit表示技能选取某个单位为锚点；unit_but_self表示技能选取除施法者以为的某个目标为锚点；position_or_unit表示技能选取位置或者某个单位为锚点；（不含二次选择操作的法术，锚点均为self）  
   * "immediate_elements"（ImmediateElements属性，option）。含义：技能释放时立即放出的技能元素。取值：字符串；形式，"SpellElement;SpellElement;..."。SpellElement取值。形式："{0},{1},{2}"，{0}为布尔值，表示技能元素是对施法者释放还是对锚点释放，值为1时表示对施法者；{1}为字符串，取值为`<spell_pattern>`的name属性；{2}为整数，表示该技能元素一次释放的生效次数。
   * "desc"（Desc属性，option）。含义：技能的文字描述。取值：字符串。
