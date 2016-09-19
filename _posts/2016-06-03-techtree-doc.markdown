@@ -9,6 +9,7 @@ categories: jekyll update
 > 9.14.2016  
 > 1.`<unit>`标签增加"manual_spell_alias"和"init_time"属性。  
 > 2.`<spell>`标签增加"render_key"和"icon"属性。  
+> 3.`<unit>`的"class"属性增加"elite"取值
 >
 > 8.27.2016  
 > 1. `<spell_content>`标签的"spell_content_class"属性加入"blink"取值。  
@@ -285,7 +286,7 @@ categories: jekyll update
 
   * "id"（Id属性）。含义：该单位的Id。取值：整数：key值。
   * "name"（Name属性）。含义：该单位的名字。取值：字符串；key值。
-  * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","summoned","hero","building","core"}。
+  * "class"（UnitClass属性）。含义：该单位的类别。取值：枚举{"warrior","elite","summoned","hero","building","core"}。
   * "profession"（Profession属性，option）。含义：单位的定位。取值：枚举{"tank","rogue","archer","mage","crazy_fucker","no_one"}。默认值：no_one。
   * "race"（UnitRace属性）。含义：该单位的种族。取值：字符串；key值。
   * "talent_name"（TalentName属性，option）。含义：该单位的天赋名称。取值：字符；key值。
@@ -365,7 +366,7 @@ categories: jekyll update
      * "max_damage"（MaxDamage属性）。含义：攻击力上限。取值：整数。
      * "range"（Range属性）。含义：攻击范围。取值：整数（地图最小单位）。
      * "fields"（Fields属性）。含义：攻击可达的Field。取值：1为对地，2为对空，3为对地对空。
-     * "unit_classes"（UnitClasses属性）。含义：可攻击的Unit类型。取值：整数；一共4位从高到低表示core，building，hero，summoned，warrior。
+     * "unit_classes"（UnitClasses属性）。含义：可攻击的Unit类型。取值：整数；一共4位从高到低表示core，building，hero，summoned，elite，warrior。
      * "deliver_class"（DeliverClass属性，option）。含义：伤害的DeliverClass类别。取值：枚举deliver_class。默认值：undefined。
      * "damage_distance"（DamageDistance属性）。含义：伤害的DamageDistance类别。取值：枚举damage_distance。
      * "bullet_name"（BulletName属性，option）。含义：该次攻击是否有子弹以及子弹信息。取值：字符串；key值。默认值：空。
