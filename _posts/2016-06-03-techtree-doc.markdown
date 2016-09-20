@@ -11,6 +11,8 @@ categories: jekyll update
 > 2.`<spell>`标签增加"render_key"和"icon"属性。  
 > 3.`<unit>`的"class"属性增加"elite"取值。  
 > 4.`<spell>`标签加入"shadow_distance"属性。  
+> 5.增加`<equipment>`标签。  
+> 6.`<unit_setting>`标签增加了一些属性。  
 >
 > 8.27.2016  
 > 1. `<spell_content>`标签的"spell_content_class"属性加入"blink"取值。  
@@ -334,6 +336,8 @@ categories: jekyll update
   * "unit_setting_level"（level属性，option）。含义：单位的属性。取值：整数。默认值：0。
   * "unit_setting_quality"（quality属性，option）。含义：单位的品质。取值：整数。默认值：0。
   * "unit_setting_talent"（talent属性，option）。含义：单位的天赋等级。取值：整数。默认值：0。
+  * "unit_setting_skiils"（Skills属性，option）。含义：单位的升级的技能。取值：字符串，形式"Id;Id;..."。默认值：空。
+  * "unit_setting_equipments"（Equipments属性，option）。含义：单位的装备。取值：字符串，形式"Id,level;Id,level;..."。默认值：空
 
 
 # `<unit_upgrade>`
@@ -343,6 +347,15 @@ categories: jekyll update
   * "unit_name"（UnitName属性）。含义：改等级信息所属于的单位的名字。取值：字符串；key值。
   * "upgrade_index"（UpgradeIndex属性）。含义：等级的序号。取值：整数[1 - maxIndex]。
   * 融合标签：`<addon>`，该等级对单位的加成。
+
+
+# `<equipment>`
+  (Equipment标签)。含义：描述单位的装备信息的配置标签。
+
+  * "id"（id属性）。含义：装备的id。取值：整数；key值。
+  * "display_name"（DisplayName属性，option）。含义：装备的显示名称。取值：字符串。默认值：空。
+  * "level"（Level属性）。含义：装备的等级。取值：整数。
+  * 融合标签：`<addon>`，该装备对单位的加成。
 
           
 # `<addon>`
