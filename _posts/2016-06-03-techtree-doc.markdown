@@ -163,6 +163,7 @@ categories: jekyll update
   * "deliver_class"（DeliverClass属性，option）。含义：damage的deliver_class类别，仅在damage_nature为hurt有意义。取值：枚举deliver_class。默认值：undefined
   * "damage_distance"（DamageDistance属性，option）。含义：伤害的距离类别（远程、近战），仅在damage_nature为hurt有意义。取值：枚举{"faraway, nearby"}。默认值：undefined。
   * "is_on_building"（IsOnBuilding属性，option）。含义：该伤害是否对建筑有效。取值：布尔值。默认值：false。
+  * "render_key"（RenderKey属性，option）。含义：伤害命中目标的特效。取值：字符串。默认值：空。
   * "feature_names"（FeatureNames属性，option）。含义：这次伤害/治疗附带的特性。取值：字符串；形式："FeatureName;FeatureName;..."。默认值：空。
 
 
@@ -201,6 +202,7 @@ categories: jekyll update
   * "name"（Name属性）。含义：光环的名字。取值：字符串；key值。
   * "radius"（Radius属性）。含义：光环的半径。取值：整数值；地图最小单位。
   * "buff_name"（BuffName属性）。含义：光环提供的buff名称。取值：字符串；key值。
+  * "render_key"（RenderKey属性，option）。含义：光环的特效资源。取值：字符串。默认值：空。
   * 融合标签：`<condition>`，描述该光环影响目标的筛选条件。
 
 
